@@ -8,17 +8,14 @@ public class Main {
 
     public static void main(String[] args) {
         int minutes = Integer.parseInt(args[0]);
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < 4 * 90000; i++) {
+            output.append("a");
+        }
+
         long start = System.currentTimeMillis();
         while (minutesPassed(start) < minutes) {
-            System.err.println("As build log can grow very large, let's ensure agent memory consumption is reasonably limited and build log is not stored in memory in its fullness. Caching it on disk will help.\n" +
-                    "\n" +
-                    "With this not fixed, agent can encounter outOfMemory error is the build log does not fit in memory and server goes offline");
-
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                break;
-            }
+            System.err.println(output);
         }
     }
 }
