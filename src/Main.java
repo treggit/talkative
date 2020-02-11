@@ -17,7 +17,7 @@ public class Main {
         while (minutesPassed(start) < minutes) {
             System.err.println(output);
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 break;
             }
