@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         int minutes = Integer.parseInt(args[0]);
         StringBuilder output = new StringBuilder();
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 100; i++) {
             output.append("a");
         }
 
@@ -17,7 +17,7 @@ public class Main {
         while (minutesPassed(start) < minutes) {
             System.err.println(output);
             try {
-                Thread.sleep(500);
+                Thread.sleep(50);
             } catch (InterruptedException e) {
                 break;
             }
