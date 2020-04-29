@@ -25,7 +25,7 @@ public class Main {
         for (int i = 0; i < threads; i++) {
             int thread = i + 1;
             executor.submit(() -> {
-                while (minutesPassed(start) < minutes) {
+                while (minutesPassed(start) < minutes / 2) {
                     System.err.println("Thread " + thread + " says: ");
                     System.err.println(output);
                     try {
