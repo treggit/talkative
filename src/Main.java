@@ -12,12 +12,14 @@ public class Main {
 
     public static void main(String[] args) {
         int minutes = Integer.parseInt(args[0]);
+        long messagesSize = Long.parseLong(args[1]);
         StringBuilder output = new StringBuilder();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < messagesSize; i++) {
             output.append("a");
         }
 
-        int threads = 8;
+        int threads = Integer.parseInt(args[2]);
+        long delay = Long.parseLong(args[3]);
         long start = System.currentTimeMillis();
         ExecutorService executor = Executors.newFixedThreadPool(threads);
         for (int i = 0; i < threads; i++) {
@@ -27,7 +29,7 @@ public class Main {
                     System.err.println("Thread " + thread + " says: ");
                     System.err.println(output);
                     try {
-                        Thread.sleep(10);
+                        Thread.sleep(delay);
                     } catch (InterruptedException e) {
                         break;
                     }
@@ -43,5 +45,7 @@ public class Main {
                 e.printStackTrace();
             }
         }
+
+        executor.shutdownNow();
     }
 }
